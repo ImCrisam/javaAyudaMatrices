@@ -8,13 +8,11 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Matriz_automatica2 extends javax.swing.JFrame {
-
-  
      
     private int tamaño;
     private int [][] randomMatriz;
     private int [][] oldMatriz;
-
+    
 
     public Matriz_automatica2() {
         initComponents();
@@ -26,7 +24,7 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
     }
     public void generarMatrizAleatoria(){
         randomMatriz = new int [tamaño][tamaño];
-        DefaultTableModel modelo = (DefaultTableModel) tblMatrizaleGenerate.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tblMatrizale2.getModel();
         if (modelo.getRowCount() != tamaño || modelo.getColumnCount() != tamaño) {
             System.out.println("generate if1");
             modelo.setRowCount(tamaño);
@@ -36,9 +34,9 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
         Random rand = new Random();
         for (int i = 0; i < tamaño; i++) {
             for (int j = 0; j < tamaño; j++) {
-                 System.out.println("generate "+j);
+                System.out.println("generate "+j);
                 int valorAleatorio = rand.nextInt(25);
-                tblMatrizaleGenerate.setValueAt(valorAleatorio, i, j);  // Muestra en la tabla
+                tblMatrizale2.setValueAt(valorAleatorio, i, j);  // Muestra en la tabla
                 randomMatriz[i][j] = valorAleatorio;
             }
         }
@@ -99,10 +97,6 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
         }
         return resultado;
     }
-    
-      /**
-     * @return the oldMatriz
-     */
     public int[][] getOldMatriz() {
         return oldMatriz;
     }
@@ -122,16 +116,16 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
         btnGenerarm3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblMatrizSuma = new javax.swing.JTable();
+        tblMatrizs1 = new javax.swing.JTable();
         btnMultipli1 = new javax.swing.JButton();
         btnResta1 = new javax.swing.JButton();
         btnSuma1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblMatrizaleGenerate = new javax.swing.JTable();
+        tblMatrizale2 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tblMatrizMultiplicacion = new javax.swing.JTable();
+        tblMatrizmulti1 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tblMatrizrResta = new javax.swing.JTable();
+        tblMatrizr1 = new javax.swing.JTable();
         btnAtrasAutomatic = new javax.swing.JButton();
         btnAtrasManual = new javax.swing.JButton();
         lbltamaño = new javax.swing.JLabel();
@@ -151,7 +145,7 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Oprima generar, para obtener una nueva matriz con datos aleatorios.");
 
-        tblMatrizSuma.setModel(new javax.swing.table.DefaultTableModel(
+        tblMatrizs1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -162,7 +156,7 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(tblMatrizSuma);
+        jScrollPane1.setViewportView(tblMatrizs1);
 
         btnMultipli1.setText("Multiplicación");
         btnMultipli1.addActionListener(new java.awt.event.ActionListener() {
@@ -185,7 +179,7 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
             }
         });
 
-        tblMatrizaleGenerate.setModel(new javax.swing.table.DefaultTableModel(
+        tblMatrizale2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -196,9 +190,9 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(tblMatrizaleGenerate);
+        jScrollPane2.setViewportView(tblMatrizale2);
 
-        tblMatrizMultiplicacion.setModel(new javax.swing.table.DefaultTableModel(
+        tblMatrizmulti1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -209,9 +203,9 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane3.setViewportView(tblMatrizMultiplicacion);
+        jScrollPane3.setViewportView(tblMatrizmulti1);
 
-        tblMatrizrResta.setModel(new javax.swing.table.DefaultTableModel(
+        tblMatrizr1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -222,7 +216,7 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane4.setViewportView(tblMatrizrResta);
+        jScrollPane4.setViewportView(tblMatrizr1);
 
         btnAtrasAutomatic.setText("Hacia la automatica");
         btnAtrasAutomatic.addActionListener(new java.awt.event.ActionListener() {
@@ -319,12 +313,9 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSuma1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuma1ActionPerformed
-        /*int[][] matrizAle = obtenerMatrizDeTabla(tblMatrizale2);
-        int[][] resultado = sumarMatrices(matrizMenu, matrizAle);
-        mostrarResultado(resultado, tblMatrizs1);*/
-
+        
             int[][] resultado = sumarMatrices(randomMatriz, oldMatriz);
-            mostrarResultado(resultado, tblMatrizSuma);
+            mostrarResultado(resultado, tblMatrizs1);
     }//GEN-LAST:event_btnSuma1ActionPerformed
 
     private void btnAtrasAutomaticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasAutomaticActionPerformed
@@ -349,15 +340,15 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
 
     private void btnResta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResta1ActionPerformed
         // TODO add your handling code here:
-        int[][] matrizAle = obtenerMatrizDeTabla(tblMatrizaleGenerate);
+        int[][] matrizAle = obtenerMatrizDeTabla(tblMatrizale2);
         int[][] resultado = restarMatrices(randomMatriz, oldMatriz);
-        mostrarResultado(resultado, tblMatrizrResta);
+        mostrarResultado(resultado, tblMatrizr1);
     }//GEN-LAST:event_btnResta1ActionPerformed
 
     private void btnMultipli1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultipli1ActionPerformed
-        int[][] matrizAle = obtenerMatrizDeTabla(tblMatrizaleGenerate);
+        int[][] matrizAle = obtenerMatrizDeTabla(tblMatrizale2);
         int[][] resultado = multiplicarMatrices(randomMatriz, oldMatriz);
-        mostrarResultado(resultado, tblMatrizMultiplicacion);
+        mostrarResultado(resultado, tblMatrizmulti1);
     }//GEN-LAST:event_btnMultipli1ActionPerformed
     
     
@@ -424,10 +415,10 @@ public class Matriz_automatica2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     public static javax.swing.JLabel lbltamaño;
-    private javax.swing.JTable tblMatrizMultiplicacion;
-    private javax.swing.JTable tblMatrizSuma;
-    private javax.swing.JTable tblMatrizaleGenerate;
-    private javax.swing.JTable tblMatrizrResta;
+    private javax.swing.JTable tblMatrizale2;
+    private javax.swing.JTable tblMatrizmulti1;
+    private javax.swing.JTable tblMatrizr1;
+    private javax.swing.JTable tblMatrizs1;
     // End of variables declaration//GEN-END:variables
 
 }

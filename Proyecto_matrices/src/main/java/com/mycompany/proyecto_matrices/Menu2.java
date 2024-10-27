@@ -226,9 +226,11 @@ public class Menu2 extends javax.swing.JFrame {
         ma2.setVisible(true);
     }else if (Menu2 == 4){
         Matriz_manual2 mml2 = new Matriz_manual2();
+        mml2.setOldMatriz(matriz);
         mml2.setVisible(true);
-        mml2.setOldMatriz(matriz); //guarda la matriz en la otra vistal
     }
+    
+    dispose();
     }//GEN-LAST:event_cbxMenu3ActionPerformed
 
     public double[][] calcularInversa(int[][] matriz) {

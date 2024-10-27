@@ -304,9 +304,11 @@ public class MtrizMnal1 extends javax.swing.JFrame {
             }
     }else if (Menu2 == 3){
         Matriz_automatica2 ma2 = new Matriz_automatica2();
+        ma2.setOldMatriz(matriz);
         ma2.setVisible(true);
     }else if (Menu2 == 4){
         Matriz_manual2 mml2 = new Matriz_manual2();
+        mml2.setOldMatriz(matriz);
         mml2.setVisible(true);
     }
     }//GEN-LAST:event_cbxMenu3ActionPerformed
